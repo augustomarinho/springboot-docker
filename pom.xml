@@ -89,7 +89,7 @@
                     </execution>-->
                     <execution>
                         <id>tag-image</id>
-                        <phase>verify</phase>
+                        <phase>deploy</phase>
                         <goals>
                             <goal>build</goal>
                             <goal>tag</goal>
