@@ -72,7 +72,7 @@
                 <configuration>
                     <preparationGoals>docker:build</preparationGoals>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <tagNameFormat>mydocker-${project.artifactId}-@{project.version}</tagNameFormat>
+                    <tagNameFormat>mydocker-${project.artifactId}-${project.version}</tagNameFormat>
                 </configuration>
             </plugin>
             <plugin>
