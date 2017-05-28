@@ -1,5 +1,11 @@
 FROM ubuntu:16.04
 
+ARG TARGET_DIR
+ARG JAR_NAME
+
+ENV TARGET_DIR $TARGET_DIR
+ENV JAR_NAME $JAR_NAME
+
 # Installing Java 8 (Oracle)
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install software-properties-common
@@ -15,7 +21,7 @@ EXPOSE 8080
 
 #INSTALLING APP
 VOLUME /tmp
-ADD springboot-docker-0.0.1-SNAPSHOT.jar app.jar
+ADD ${TARGET_DIR}/${JAR_NAME} app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS=""
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
